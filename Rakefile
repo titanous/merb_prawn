@@ -6,10 +6,10 @@ require 'merb-core/tasks/merb'
 
 GEM_NAME = "merb_prawn"
 GEM_VERSION = "0.0.1"
-AUTHOR = "Your Name"
-EMAIL = "Your Email"
-HOMEPAGE = "http://merbivore.com/"
-SUMMARY = "Merb plugin that provides ..."
+AUTHOR = "Jonathan Rudenberg"
+EMAIL = "jon335@gmail.com"
+HOMEPAGE = "http://github.com/titanous/merb_prawn"
+SUMMARY = "A plugin for the Merb framework that provides PDF views using Prawn."
 
 spec = Gem::Specification.new do |s|
   s.rubyforge_project = 'merb'
