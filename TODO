@@ -1,3 +1,3 @@
 TODO:
-Add your code to lib/merb_prawn.rb
-Add your Merb rake tasks to lib/merb_prawn/merbtasks.rb
+Set HTTP Headers
+Allow custom filenames
