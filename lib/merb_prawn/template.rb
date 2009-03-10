@@ -17,23 +17,26 @@ module Merb::Template
       end.join
       mod.send(method, %{
         def #{name}(_locals={})
+          extend #{DocumentProxy}
           @_engine = 'prawn'
-
           #{assigns}
-
-          config = (Merb.config[:prawn] || {}).inject({}) do |c, (k, v)|
-            c[k.to_sym] = v
-            c
-          end
-          pdf = ::Prawn::Document.new(config)
-          pdf.instance_eval do
-            %{#{io.read}}
-          end
+          #{io.read}
           pdf.render
         end
         })
-
       name
+    end
+    
+    module DocumentProxy
+      def pdf
+        @pdf ||= ::Prawn::Document.new
+      end
+      
+      private
+      
+        def method_missing(method, *args, &block)
+          pdf.respond_to?(method) ? pdf.send(method, *args, &block) : super
+        end
     end
     
     module Mixin
