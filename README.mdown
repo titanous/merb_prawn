@@ -1,0 +1,25 @@
+# merb_prawn
+
+A template plugin for the Merb framework that provides PDF views using [Prawn](http://prawn.majesticseacreature.com/).
+
+## Usage
+
+1.  Declare the PDF MIME type in `init.rb`:
+
+        Merb::BootLoader.after_app_loads do
+				  Merb.add_mime_type(:pdf, nil, %w[application/pdf])
+				end
+
+2.  Name PDF view files like `foo.pdf.prawn`.
+
+        bounding_box [100, 600], :width => 200 do
+          text "The rain in spain falls mainly on the plains " * 5
+          stroke do
+            line bounds.top_left,    bounds.top_right
+            line bounds.bottom_left, bounds.bottom_right
+          end
+        end
+
+## Credits
+Written by Jonathan Rudenberg. Released under the MIT-license: see the `LICENSE` file.
+Original Rails plugin by [Roman Le Négrate](http://roman.flucti.com).
