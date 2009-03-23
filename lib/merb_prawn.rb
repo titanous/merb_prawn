@@ -12,5 +12,6 @@ if defined?(Merb::Plugins)
   end
   
   Merb::BootLoader.after_app_loads do
+    Merb.add_mime_type(:pdf, nil, %w[application/pdf])
   end
 end
